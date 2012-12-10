@@ -18,7 +18,7 @@ COMMENT=	Python bindings for the Sleuthkit
 
 LICENSE=	AL2
 
-LIB_DEPENDS=	libtsk3:${PORTSDIR}/sysutils/sleuthkit
+LIB_DEPENDS=	tsk3:${PORTSDIR}/sysutils/sleuthkit
 
 WRKSRC=		${WRKDIR}/${PORTNAME}
 
