@@ -1,3 +1,3 @@
-Library and tools to access the Windows Shortcut File (LNK) Format
+Python bindings for the Sleuthkit
 
-WWW:	http://code.google.com/p/liblnk/
+WWW:	http://code.google.com/p/pytsk/
