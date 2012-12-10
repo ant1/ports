@@ -1,0 +1,23 @@
+bin/reglookup
+bin/reglookup-recover
+bin/reglookup-timeline
+include/regfi/byteorder.h
+include/regfi/compat.h
+include/regfi/lru_cache.h
+include/regfi/range_list.h
+include/regfi/regfi.h
+include/regfi/void_stack.h
+include/regfi/winsec.h
+lib/libregfi.a
+lib/libregfi.so
+%%PYTHON_SITELIBDIR%%/pyregfi/__init__.py
+%%PYTHON_SITELIBDIR%%/pyregfi/__init__.pyc
+%%PYTHON_SITELIBDIR%%/pyregfi/__init__.pyo
+%%PYTHON_SITELIBDIR%%/pyregfi/structures.py
+%%PYTHON_SITELIBDIR%%/pyregfi/structures.pyc
+%%PYTHON_SITELIBDIR%%/pyregfi/structures.pyo
+%%PYTHON_SITELIBDIR%%/pyregfi/winsec.py
+%%PYTHON_SITELIBDIR%%/pyregfi/winsec.pyc
+%%PYTHON_SITELIBDIR%%/pyregfi/winsec.pyo
+@dirrm include/regfi
+@dirrm %%PYTHON_SITELIBDIR%%/pyregfi
