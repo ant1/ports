@@ -30,5 +30,6 @@ PYDISTUTILS_PKGVERSION=0.1
 # Todo:
 # - misc.h doesn't include <sys/types.h> early enough
 # - CPPFLAGS and LDFLAGS need to be adjusted (setup.py)
+# - PORTDOCS=LICENSE README
 
 .include <bsd.port.mk>
