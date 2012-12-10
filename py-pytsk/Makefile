@@ -18,6 +18,8 @@ COMMENT=	Python bindings for the Sleuthkit
 
 LICENSE=	AL2
 
+LIB_DEPENDS=	libtsk3:${PORTSDIR}/sysutils/sleuthkit
+
 WRKSRC=		${WRKDIR}/${PORTNAME}
 
 USE_PYTHON=	yes
