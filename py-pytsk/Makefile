@@ -30,6 +30,18 @@ PYDISTUTILS_PKGVERSION=0.1
 # Todo:
 # - misc.h doesn't include <sys/types.h> early enough
 # - CPPFLAGS and LDFLAGS need to be adjusted (setup.py)
-# - PORTDOCS=LICENSE README
+
+OPTIONS_DEFINE=	DOCS
+
+DOCSDIR=	${PREFIX}/share/doc/py-${PORTNAME}
+PORTDOCS=	LICENSE README
+
+.include <bsd.port.options.mk>
+
+post-install:
+.if ${PORT_OPTIONS:MDOCS}
+	@${MKDIR} ${DOCSDIR}
+	${INSTALL_DATA} ${PORTDOCS:S,^,${WRKSRC}/,} ${DOCSDIR}
+.endif
 
 .include <bsd.port.mk>
