@@ -25,4 +25,8 @@ USE_PYDISTUTILS=yes
 PYDISTUTILS_PKGNAME=pytsk3
 PYDISTUTILS_PKGVERSION=0.1
 
+# Todo:
+# - misc.h doesn't include <sys/types.h> early enough
+# - CPPFLAGS and LDFLAGS need to be adjusted (setup.py)
+
 .include <bsd.port.mk>
