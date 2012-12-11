@@ -27,11 +27,12 @@ USE_PYDISTUTILS=yes
 PYDISTUTILS_PKGNAME=pytsk3
 PYDISTUTILS_PKGVERSION=0.1
 
-# Todo:
-# - CPPFLAGS and LDFLAGS need to be adjusted (setup.py)
-
 post-patch:
 	${REINPLACE_CMD} -e '/socket\.h/ { h; s|socket|types|; G; }' ${WRKSRC}/misc.h
+	${REINPLACE_CMD} -e 's|/usr/include/tsk3/|${LOCALBASE}/include/tsk3/|' \
+		-e "s|LIBRARY_DIRS = \[\]|LIBRARY_DIRS = ['${LOCALBASE}/lib/']|" \
+		-e "s|= \[CONFIG\['TSK3_HEADER_LOCATION'\]\]|= ['${LOCALBASE}/include/']|" \
+		${WRKSRC}/setup.py
 
 OPTIONS_DEFINE=	DOCS
 
