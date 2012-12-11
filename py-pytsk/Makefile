@@ -28,8 +28,10 @@ PYDISTUTILS_PKGNAME=pytsk3
 PYDISTUTILS_PKGVERSION=0.1
 
 # Todo:
-# - misc.h doesn't include <sys/types.h> early enough
 # - CPPFLAGS and LDFLAGS need to be adjusted (setup.py)
+
+post-patch:
+	${REINPLACE_CMD} -e '/socket\.h/ { h; s|socket|types|; G; }' ${WRKSRC}/misc.h
 
 OPTIONS_DEFINE=	DOCS
 
