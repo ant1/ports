@@ -38,7 +38,7 @@ PORTDOCS=	AUTHORS COPYING ChangeLog
 
 .include <bsd.port.pre.mk>
 
-.if ${OSVERSION} < 1000020
+.if ${OSVERSION} < 1000021
 RUN_DEPENDS+=	${LOCALBASE}/modules/fuse.ko:${PORTSDIR}/sysutils/fusefs-kmod
 .endif
 
