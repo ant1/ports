@@ -34,10 +34,13 @@ post-patch:
 		-e "s|= \[CONFIG\['TSK3_HEADER_LOCATION'\]\]|= ['${LOCALBASE}/include/']|" \
 		${WRKSRC}/setup.py
 
-OPTIONS_DEFINE=	DOCS
+OPTIONS_DEFINE=	DOCS EXAMPLES
 
 DOCSDIR=	${PREFIX}/share/doc/py-${PORTNAME}
 PORTDOCS=	LICENSE README
+
+EXAMPLESDIR=	${PREFIX}/share/examples/py-${PORTNAME}
+PORTEXAMPLES=	ewf.py fls.py icat.py images.py imgfuse.py istat.py mmls.py tskfuse.py
 
 .include <bsd.port.options.mk>
 
@@ -45,6 +48,10 @@ post-install:
 .if ${PORT_OPTIONS:MDOCS}
 	@${MKDIR} ${DOCSDIR}
 	${INSTALL_DATA} ${PORTDOCS:S,^,${WRKSRC}/,} ${DOCSDIR}
+.endif
+.if ${PORT_OPTIONS:MEXAMPLES}
+	@${MKDIR} ${EXAMPLESDIR}
+	${INSTALL_DATA} ${PORTEXAMPLES:S,^,${WRKSRC}/samples/,} ${EXAMPLESDIR}
 .endif
 
 .include <bsd.port.mk>
