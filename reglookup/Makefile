@@ -34,6 +34,7 @@ post-patch:
 		-e "s|env.ManPage(||" -e "s|.1.docbook')|.1.gz'|" \
 		-e 's|pyregfi-distutils.py install|pyregfi-distutils.py install -c -O1 --prefix=" + prefix + "|' \
 		${WRKSRC}/SConstruct
+	# XXX UGLY HACK libregfi should be installed correctly instead
 	${REINPLACE_CMD} -e "s|ctypes.util.find_library('regfi')|'libregfi.so'|" \
 		${WRKSRC}/python/pyregfi/structures.py
 	${REINPLACE_CMD} -e 's|"libc.so.6"|ctypes.util.find_library("c")|' \
