@@ -10,6 +10,7 @@ include/regfi/void_stack.h
 include/regfi/winsec.h
 lib/libregfi.a
 lib/libregfi.so
+lib/libregfi.so.0
 %%PYTHON_SITELIBDIR%%/pyregfi/__init__.py
 %%PYTHON_SITELIBDIR%%/pyregfi/__init__.pyc
 %%PYTHON_SITELIBDIR%%/pyregfi/__init__.pyo
