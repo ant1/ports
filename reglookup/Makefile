@@ -29,13 +29,13 @@ MANCOMPRESSED=	yes
 
 MAN1=		reglookup.1 reglookup-recover.1 reglookup-timeline.1
 
-# XXX Python stuff does not work yet AttributeError: Undefined symbol "winsec_sid2str"
-
 post-patch:
 	${REINPLACE_CMD} -e "s|'m'|'iconv', 'm'|" \
 		-e "s|env.ManPage(||" -e "s|.1.docbook')|.1.gz'|" \
 		-e 's|pyregfi-distutils.py install|pyregfi-distutils.py install -c -O1 --prefix=" + prefix + "|' \
 		${WRKSRC}/SConstruct
+	${REINPLACE_CMD} -e "s|ctypes.util.find_library('regfi')|'libregfi.so'|" \
+		${WRKSRC}/python/pyregfi/structures.py
 	${REINPLACE_CMD} -e 's|"libc.so.6"|ctypes.util.find_library("c")|' \
 		${WRKSRC}/python/pyregfi/winsec.py
 
