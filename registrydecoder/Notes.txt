@@ -1,0 +1,11 @@
+Dependencies:
+
+py-pytsk + copy /usr/local/share/examples/py-pytsk/ewf.py in registrydecoder directory
+reglookup
+
+devel/py-qt4-core
+x11-toolkits/py-qt4-gui
+net/py-qt4-network
+print/py-reportlab
+textproc/py-xlwt
+devel/libewf
