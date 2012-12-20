@@ -1,9 +1,5 @@
-# New ports collection makefile for:	libmsiecf
-# Date created:				9 December 2012
-# Whom:					antoine@FreeBSD.org
-#
+# Created by: antoine@FreeBSD.org
 # $FreeBSD$
-#
 
 PORTNAME=	libmsiecf
 PORTVERSION=	20120428
@@ -16,12 +12,12 @@ COMMENT=	Library and tools to access the MSIE index.dat files
 
 LICENSE=	LGPL3
 
+GNU_CONFIGURE=	yes
 USE_GETTEXT=	yes
 USE_GNOME=	gnomehack
 USE_ICONV=	yes
 USE_LDCONFIG=	yes
 
-GNU_CONFIGURE=	yes
 LDFLAGS+=	-L${LOCALBASE}/lib
 WRKSRC=		${WRKDIR}/${PORTNAME}-${PORTVERSION}
 
@@ -30,7 +26,7 @@ MAN3=		libmsiecf.3
 
 OPTIONS_DEFINE=	DOCS
 
-PORTDOCS=	AUTHORS COPYING ChangeLog
+PORTDOCS=	AUTHORS ChangeLog
 
 .include <bsd.port.options.mk>
 

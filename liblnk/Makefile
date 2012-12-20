@@ -1,9 +1,5 @@
-# New ports collection makefile for:	liblnk
-# Date created:				30 November 2012
-# Whom:					antoine@FreeBSD.org
-#
+# Created by: antoine@FreeBSD.org
 # $FreeBSD$
-#
 
 PORTNAME=	liblnk
 PORTVERSION=	20121205
@@ -12,18 +8,19 @@ MASTER_SITES=	GOOGLE_CODE
 DISTNAME=	${PORTNAME}-alpha-${PORTVERSION}
 
 MAINTAINER=	antoine@FreeBSD.org
-COMMENT=	Library and tools to access the Windows Shortcut File (LNK) Format
+COMMENT=	Library and tools to access the Windows shortcut file (LNK) format
 
 LICENSE=	LGPL3
 
+GNU_CONFIGURE=	yes
+CONFIGURE_ARGS=	--enable-python
+USE_PKGCONFIG=	build
 USE_GETTEXT=	yes
 USE_GNOME=	gnomehack
 USE_ICONV=	yes
-USE_LDCONFIG=	yes
 USE_PYTHON=	yes
+USE_LDCONFIG=	yes
 
-GNU_CONFIGURE=	yes
-CONFIGURE_ARGS=	--enable-python
 LDFLAGS+=	-L${LOCALBASE}/lib
 WRKSRC=		${WRKDIR}/${PORTNAME}-${PORTVERSION}
 
@@ -32,7 +29,7 @@ MAN3=		liblnk.3
 
 OPTIONS_DEFINE=	DOCS
 
-PORTDOCS=	AUTHORS COPYING ChangeLog
+PORTDOCS=	AUTHORS ChangeLog
 
 .include <bsd.port.options.mk>
 

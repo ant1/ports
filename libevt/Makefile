@@ -1,9 +1,5 @@
-# New ports collection makefile for:	libevt
-# Date created:				9 December 2012
-# Whom:					antoine@FreeBSD.org
-#
+# Created by: antoine@FreeBSD.org
 # $FreeBSD$
-#
 
 PORTNAME=	libevt
 PORTVERSION=	20121125
@@ -16,14 +12,14 @@ COMMENT=	Library and tooling to access the Windows Event Log (EVT) format
 
 LICENSE=	LGPL3
 
+GNU_CONFIGURE=	yes
+CONFIGURE_ARGS=	--enable-python
 USE_GETTEXT=	yes
 USE_GNOME=	gnomehack
 USE_ICONV=	yes
-USE_LDCONFIG=	yes
 USE_PYTHON=	yes
+USE_LDCONFIG=	yes
 
-GNU_CONFIGURE=	yes
-CONFIGURE_ARGS=	--enable-python
 LDFLAGS+=	-L${LOCALBASE}/lib
 WRKSRC=		${WRKDIR}/${PORTNAME}-${PORTVERSION}
 
@@ -32,7 +28,7 @@ MAN3=		libevt.3
 
 OPTIONS_DEFINE=	DOCS
 
-PORTDOCS=	AUTHORS COPYING ChangeLog
+PORTDOCS=	AUTHORS ChangeLog
 
 .include <bsd.port.options.mk>
 
