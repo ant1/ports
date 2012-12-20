@@ -1,9 +1,5 @@
-# New ports collection makefile for:	pytsk
-# Date created:				10 December 2012
-# Whom:					antoine@FreeBSD.org
-#
+# Created by: antoine@FreeBSD.org
 # $FreeBSD$
-#
 
 PORTNAME=	pytsk
 PORTVERSION=	20121110

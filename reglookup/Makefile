@@ -1,9 +1,5 @@
-# New ports collection makefile for:	reglookup
-# Date created:				9 December 2012
-# Whom:					antoine@FreeBSD.org
-#
+# Created by: antoine@FreeBSD.org
 # $FreeBSD$
-#
 
 PORTNAME=	reglookup
 PORTVERSION=	1.0.1
