@@ -11,12 +11,12 @@ COMMENT=	Python bindings for ssdeep
 
 LICENSE=	BSD
 
-USE_GITHUB=    yes
-GH_ACCOUNT=    kbandla
-GH_TAGNAME=    4aabf0866c8c53973211733d223dfc7c3395381e
-GH_COMMIT=     4aabf08
-
 LIB_DEPENDS=	fuzzy:${PORTSDIR}/security/ssdeep
+
+USE_GITHUB=	yes
+GH_ACCOUNT=	kbandla
+GH_TAGNAME=	4aabf0866c8c53973211733d223dfc7c3395381e
+GH_COMMIT=	4aabf08
 
 USE_PYTHON=	yes
 USE_PYDISTUTILS=yes
