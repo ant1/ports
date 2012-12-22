@@ -29,7 +29,7 @@ post-patch:
 	${REINPLACE_CMD} -e "s|'m'|'iconv', 'm'|" \
 		-e "s|env.ManPage(||" -e "s|.1.docbook')|.1.gz'|" \
 		-e '/SharedLibrary/s/)/, LINKFLAGS="-Wl,-soname,libregfi.so.0", SHLIBSUFFIX=".so.0")/' \
-		-e '/ldconfig/g' \
+		-e '/ldconfig/d' \
 		-e 's|pyregfi-distutils.py install|pyregfi-distutils.py install -c -O1 --prefix=" + prefix + "|' \
 		${WRKSRC}/SConstruct
 	${REINPLACE_CMD} -e 's|"libc.so.6"|ctypes.util.find_library("c")|' \
