@@ -13,7 +13,7 @@ LICENSE=	BSD
 
 USE_GITHUB=    yes
 GH_ACCOUNT=    kbandla
-GH_TAGNAME=    master
+GH_TAGNAME=    4aabf0866c8c53973211733d223dfc7c3395381e
 GH_COMMIT=     4aabf08
 
 LIB_DEPENDS=	fuzzy:${PORTSDIR}/security/ssdeep
@@ -27,7 +27,7 @@ DOCSDIR=	${PREFIX}/share/doc/py-${PORTNAME}
 PORTDOCS=	README
 
 post-patch:
-	${REINPLACE_CMD} -e 's|name = "pydeep",|name = "pydeep", version="0.2",|'\
+	${REINPLACE_CMD} -e 's|name = "pydeep",|name = "pydeep", version="${PORTVERSION}",|'\
 		-e 's|libraries = \["fuzzy"],|libraries = ["fuzzy"], include_dirs = ["${LOCALBASE}/include"], library_dirs = ["${LOCALBASE}/lib"],|' \
 		${WRKSRC}/setup.py
 
