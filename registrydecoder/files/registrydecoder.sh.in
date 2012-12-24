@@ -1,0 +1,3 @@
+#!/bin/sh
+# $FreeBSD$
+exec %%PYTHON_CMD%% -O %%PATH%%/guimain.py
