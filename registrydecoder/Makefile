@@ -11,11 +11,6 @@ COMMENT=	Automated acquisition, analysis, and reporting of registry contents
 
 LICENSE=	GPLv2
 
-USE_PYTHON=	yes
-
-SUB_FILES=	${PORTNAME}.sh
-SUB_LIST=	PYTHON_CMD=${PYTHON_CMD} PATH=${PYTHONPREFIX_SITELIBDIR}/${PORTNAME}
-
 RUN_DEPENDS=	libewf>=0:${PORTSDIR}/devel/libewf \
 		${PYTHON_PKGNAMEPREFIX}pytsk>=0:${PORTSDIR}/devel/py-pytsk \
 		${PYTHON_PKGNAMEPREFIX}qt4-core>=0:${PORTSDIR}/devel/py-qt4-core \
@@ -25,6 +20,11 @@ RUN_DEPENDS=	libewf>=0:${PORTSDIR}/devel/libewf \
 		${PYTHON_PKGNAMEPREFIX}reportlab>=0:${PORTSDIR}/print/py-reportlab \
 		${PYTHON_PKGNAMEPREFIX}sqlite3>=0:${PORTSDIR}/databases/py-sqlite3 \
 		${PYTHON_PKGNAMEPREFIX}xlwt>=0:${PORTSDIR}/textproc/py-xlwt
+
+USE_PYTHON=	yes
+
+SUB_FILES=	${PORTNAME}.sh
+SUB_LIST=	PYTHON_CMD=${PYTHON_CMD} PATH=${PYTHONPREFIX_SITELIBDIR}/${PORTNAME}
 
 post-patch:
 	${REINPLACE_CMD} -e 's/"template_manager"./"template_manager",/' ${WRKSRC}/__init__.py
