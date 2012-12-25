@@ -54,6 +54,7 @@ lib/libtsk3.so.9
 %%JAVA%%lib/libtsk_jni.la
 %%JAVA%%lib/libtsk_jni.so
 %%JAVA%%lib/libtsk_jni.so.0
+%%JAVA%%%%JAVAJARDIR%%/Tsk_DataModel.jar
 %%DATADIR%%/sorter/default.sort
 %%DATADIR%%/sorter/freebsd.sort
 %%DATADIR%%/sorter/images.sort

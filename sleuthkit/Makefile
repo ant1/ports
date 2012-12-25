@@ -24,7 +24,7 @@ MAN1=		blkcalc.1 blkcat.1 blkls.1 \
 		tsk_comparedir.1 tsk_gettimes.1 tsk_loaddb.1 tsk_recover.1
 
 OPTIONS_DEFINE=	DOCS LIBEWF JAVA
-OPTIONS_DEFAULT=DOCS LIBEWF JAVA
+OPTIONS_DEFAULT=LIBEWF JAVA
 
 .include <bsd.port.options.mk>
 
@@ -36,6 +36,8 @@ CONFIGURE_ARGS+=	--without-libewf
 .endif
 
 .if ${PORT_OPTIONS:MJAVA}
+CATEGORIES+=	java
+BUILD_DEPENDS+=	ant:${PORTSDIR}/devel/apache-ant
 USE_JAVA=	yes
 PLIST_SUB+=	JAVA=""
 .else
@@ -46,12 +48,22 @@ post-patch:
 .if ${PORT_OPTIONS:MJAVA}
 	${REINPLACE_CMD} -e 's|_JTOPDIR=.*ACJNI_FOLLOWED.*|_JTOPDIR="${JAVA_HOME}"|' \
 		-e '/bsdi\*/ { h; s|bsdi|freebsd| ; s|bsdos|freebsd| ; G; }' ${WRKSRC}/configure
+	${REINPLACE_CMD} -e 's|depends="init-ivy, compile"|depends="compile"|' \
+		-e '/antcall target="retrieve-deps"/d' ${WRKSRC}/bindings/java/build.xml
+.endif
+
+post-build:
+.if ${PORT_OPTIONS:MJAVA}
+	cd ${WRKSRC}/bindings/java && ant
 .endif
 
 post-install:
 .if ${PORT_OPTIONS:MDOCS}
 	@${MKDIR} ${DOCSDIR}
 	cd ${WRKSRC} && ${INSTALL_DATA} ${PORTDOCS} ${DOCSDIR}
+.endif
+.if ${PORT_OPTIONS:MJAVA}
+	${INSTALL_DATA} ${WRKSRC}/bindings/java/dist/Tsk_DataModel.jar ${JAVAJARDIR}/Tsk_DataModel.jar
 .endif
 
 .include <bsd.port.mk>
