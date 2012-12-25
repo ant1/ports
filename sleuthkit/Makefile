@@ -9,6 +9,8 @@ MASTER_SITES=	SF
 MAINTAINER=	ports@FreeBSD.org
 COMMENT=	Tools and library for filesystem forensic analysis
 
+RUN_DEPENDS=	p5-DateTime-TimeZone>=0:${PORTSDIR}/devel/p5-DateTime-TimeZone
+
 CONFLICTS=	ja-ls-[0-9]*
 
 GNU_CONFIGURE=	yes
