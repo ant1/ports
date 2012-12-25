@@ -24,6 +24,7 @@ MAN1=		blkcalc.1 blkcat.1 blkls.1 \
 		tsk_comparedir.1 tsk_gettimes.1 tsk_loaddb.1 tsk_recover.1
 
 OPTIONS_DEFINE=	DOCS LIBEWF JAVA
+LIBEWF_DESC=	Build with EWF support
 OPTIONS_DEFAULT=LIBEWF JAVA
 
 .include <bsd.port.options.mk>
