@@ -5,4 +5,4 @@ accessing registry data structures. The project has a focus on providing tools
 for digital forensic examiners (though is useful for many purposes), and
 includes algorithms for retrieving deleted data structures from registry hives.
 
-WWW:	http://projects.sentinelchicken.org/reglookup/
+WWW: http://projects.sentinelchicken.org/reglookup/
