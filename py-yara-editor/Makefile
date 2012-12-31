@@ -24,6 +24,9 @@ OPTIONS_DEFINE=	DOCS
 DOCSDIR=	${PREFIX}/share/doc/py-${PORTNAME}
 PORTDOCS=	README
 
+MANLANG=	"" fr
+MAN8=		yara-editor.8
+
 post-patch:
 	${REINPLACE_CMD} -e '/config_dir/d' \
 		-e '/en\/man8/d' \
