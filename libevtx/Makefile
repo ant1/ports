@@ -41,7 +41,7 @@ post-install:
 .if ${PORT_OPTIONS:MEXAMPLES}
 	@${MKDIR} ${EXAMPLESDIR}
 	${INSTALL_DATA} ${WRKSRC}/examples/${PORTNAME}/* ${EXAMPLESDIR}
-	${INSTALL_DATA} ${WRKSRC}/examples/py${PORTNAME:S/lib//}/* ${EXAMPLESDIR}
+	${INSTALL_DATA} ${WRKSRC}/examples/${PORTNAME:S/lib/py/}/* ${EXAMPLESDIR}
 .endif
 
 .include <bsd.port.mk>
