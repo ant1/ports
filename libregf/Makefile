@@ -12,10 +12,9 @@ COMMENT=	Library and tools to support the Windows NT Registry File format
 
 LICENSE=	LGPL3
 
-LIB_DEPENDS=	fuse:${PORTSDIR}/sysutils/fusefs-libs
-
 GNU_CONFIGURE=	yes
 CONFIGURE_ARGS=	--enable-python
+USE_FUSE=	yes
 USE_GETTEXT=	yes
 USE_GNOME=	gnomehack
 USE_ICONV=	yes
@@ -32,11 +31,7 @@ OPTIONS_DEFINE=	DOCS
 
 PORTDOCS=	AUTHORS ChangeLog
 
-.include <bsd.port.pre.mk>
-
-.if ${OSVERSION} < 1000021
-RUN_DEPENDS+=	${LOCALBASE}/modules/fuse.ko:${PORTSDIR}/sysutils/fusefs-kmod
-.endif
+.include <bsd.port.options.mk>
 
 post-install:
 .if ${PORT_OPTIONS:MDOCS}
@@ -44,4 +39,4 @@ post-install:
 	${INSTALL_DATA} ${PORTDOCS:S,^,${WRKSRC}/,} ${DOCSDIR}
 .endif
 
-.include <bsd.port.post.mk>
+.include <bsd.port.mk>
