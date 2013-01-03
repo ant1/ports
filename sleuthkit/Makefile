@@ -3,10 +3,11 @@
 
 PORTNAME=	sleuthkit
 PORTVERSION=	4.0.1
+PORTREVISION=	2
 CATEGORIES=	sysutils security
 MASTER_SITES=	SF
 
-MAINTAINER=	ports@FreeBSD.org
+MAINTAINER=	antoine@FreeBSD.org
 COMMENT=	Tools and library for filesystem forensic analysis
 
 RUN_DEPENDS=	p5-DateTime-TimeZone>=0:${PORTSDIR}/devel/p5-DateTime-TimeZone
@@ -27,7 +28,7 @@ MAN1=		blkcalc.1 blkcat.1 blkls.1 \
 
 OPTIONS_DEFINE=	DOCS LIBEWF JAVA
 LIBEWF_DESC=	Build with EWF support
-OPTIONS_DEFAULT=LIBEWF JAVA
+OPTIONS_DEFAULT=LIBEWF
 
 .include <bsd.port.options.mk>
 
