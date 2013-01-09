@@ -2,10 +2,9 @@
 # $FreeBSD$
 
 PORTNAME=	libevt
-PORTVERSION=	20121220
+DISTVERSION=	alpha-20130108
 CATEGORIES=	devel
 MASTER_SITES=	GOOGLE_CODE
-DISTNAME=	${PORTNAME}-alpha-${PORTVERSION}
 
 MAINTAINER=	antoine@FreeBSD.org
 COMMENT=	Library and tooling to access the Windows Event Log (EVT) format
@@ -21,7 +20,7 @@ USE_PYTHON=	yes
 USE_LDCONFIG=	yes
 
 LDFLAGS+=	-L${LOCALBASE}/lib
-WRKSRC=		${WRKDIR}/${PORTNAME}-${PORTVERSION}
+WRKSRC=		${WRKDIR}/${PORTNAME}-${PORTVERSION:E}
 
 MAN1=		evtexport.1 evtinfo.1
 MAN3=		libevt.3
