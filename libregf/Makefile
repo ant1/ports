@@ -2,10 +2,9 @@
 # $FreeBSD$
 
 PORTNAME=	libregf
-PORTVERSION=	20121112
+DISTVERSION=	alpha-20121112
 CATEGORIES=	devel
 MASTER_SITES=	GOOGLE_CODE
-DISTNAME=	${PORTNAME}-alpha-${PORTVERSION}
 
 MAINTAINER=	antoine@FreeBSD.org
 COMMENT=	Library and tools to support the Windows NT Registry File format
@@ -22,7 +21,7 @@ USE_PYTHON=	yes
 USE_LDCONFIG=	yes
 
 LDFLAGS+=	-L${LOCALBASE}/lib
-WRKSRC=		${WRKDIR}/${PORTNAME}-${PORTVERSION}
+WRKSRC=		${WRKDIR}/${PORTNAME}-${PORTVERSION:E}
 
 MAN1=		regfinfo.1
 MAN3=		libregf.3
