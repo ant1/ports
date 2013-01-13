@@ -11,5 +11,8 @@ lib/libmsiecf.a
 lib/libmsiecf.la
 lib/libmsiecf.so
 lib/libmsiecf.so.1
+%%PYTHON_SITELIBDIR%%/pymsiecf.a
+%%PYTHON_SITELIBDIR%%/pymsiecf.la
+%%PYTHON_SITELIBDIR%%/pymsiecf.so
 libdata/pkgconfig/libmsiecf.pc
 @dirrm include/libmsiecf

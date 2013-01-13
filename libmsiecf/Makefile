@@ -2,10 +2,9 @@
 # $FreeBSD$
 
 PORTNAME=	libmsiecf
-PORTVERSION=	20120428
+DISTVERSION=	alpha-20130112
 CATEGORIES=	devel
 MASTER_SITES=	GOOGLE_CODE
-DISTNAME=	${PORTNAME}-alpha-${PORTVERSION}
 
 MAINTAINER=	antoine@FreeBSD.org
 COMMENT=	Library and tools to access the MSIE index.dat files
@@ -13,13 +12,15 @@ COMMENT=	Library and tools to access the MSIE index.dat files
 LICENSE=	LGPL3
 
 GNU_CONFIGURE=	yes
+CONFIGURE_ARGS=	--enable-python
 USE_GETTEXT=	yes
 USE_GNOME=	gnomehack
 USE_ICONV=	yes
+USE_PYTHON=	yes
 USE_LDCONFIG=	yes
 
 LDFLAGS+=	-L${LOCALBASE}/lib
-WRKSRC=		${WRKDIR}/${PORTNAME}-${PORTVERSION}
+WRKSRC=		${WRKDIR}/${PORTNAME}-${PORTVERSION:E}
 
 MAN1=		msiecfexport.1 msiecfinfo.1
 MAN3=		libmsiecf.3
