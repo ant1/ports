@@ -1,4 +1,4 @@
-# Created by: antoine@FreeBSD.org
+# Created by: Antoine Brodin <antoine@FreeBSD.org>
 # $FreeBSD$
 
 PORTNAME=	liblnk
@@ -41,8 +41,8 @@ post-install:
 .endif
 .if ${PORT_OPTIONS:MEXAMPLES}
 	@${MKDIR} ${EXAMPLESDIR}
-	${INSTALL_DATA} ${WRKSRC}/examples/${PORTNAME}/* ${EXAMPLESDIR}
-	${INSTALL_DATA} ${WRKSRC}/examples/${PORTNAME:S/lib/py/}/* ${EXAMPLESDIR}
+	${INSTALL_DATA} ${WRKSRC}/examples/${PORTNAME}/* \
+		${WRKSRC}/examples/${PORTNAME:S,lib,py,}/* ${EXAMPLESDIR}
 .endif
 
 .include <bsd.port.mk>
