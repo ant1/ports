@@ -1,4 +1,4 @@
-# Created by: antoine@FreeBSD.org
+# Created by: Antoine Brodin <antoine@FreeBSD.org>
 # $FreeBSD$
 
 PORTNAME=	pydeep
