@@ -29,7 +29,7 @@ MAN1=		blkcalc.1 blkcat.1 blkls.1 \
 
 OPTIONS_DEFINE=	DOCS LIBEWF JAVA
 LIBEWF_DESC=	Build with EWF support
-OPTIONS_DEFAULT=LIBEWF
+OPTIONS_DEFAULT=LIBEWF JAVA
 
 .include <bsd.port.options.mk>
 
@@ -42,17 +42,17 @@ CONFIGURE_ARGS+=	--without-libewf
 
 .if ${PORT_OPTIONS:MJAVA}
 CATEGORIES+=	java
-BUILD_DEPENDS+=	ant:${PORTSDIR}/devel/apache-ant
+#BUILD_DEPENDS+=	ant:${PORTSDIR}/devel/apache-ant
 USE_JAVA=	yes
 PLIST_SUB+=	JAVA=""
+CONFIGURE_ENV+=	_ACJNI_JAVAC="${JAVAC}"
 .else
 PLIST_SUB+=	JAVA="@comment "
 .endif
 
 post-patch:
 .if ${PORT_OPTIONS:MJAVA}
-	${REINPLACE_CMD} -e 's|_JTOPDIR=.*ACJNI_FOLLOWED.*|_JTOPDIR="${JAVA_HOME}"|' \
-		-e '/bsdi\*/ { h; s|bsdi|freebsd| ; s|bsdos|freebsd| ; G; }' ${WRKSRC}/configure
+	${REINPLACE_CMD} -e '/bsdi\*/ { h; s|bsdi|freebsd| ; s|bsdos|freebsd| ; G; }' ${WRKSRC}/configure
 #	${REINPLACE_CMD} -e 's|depends="init-ivy, compile"|depends="compile"|' \
 #		-e '/antcall target="retrieve-deps"/d' ${WRKSRC}/bindings/java/build.xml
 .endif
