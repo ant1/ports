@@ -28,8 +28,6 @@ MANLANG=	"" fr
 MAN8=		yara-editor.8
 
 post-patch:
-	${REINPLACE_CMD} -e 's|/usr/bin/env python|${PYTHON_CMD}|' \
-		${WRKSRC}/bin/yara-editor
 	${REINPLACE_CMD} -e '/config_dir/d' \
 		-e '/en\/man8/d' \
 		-e "/'man8'/s/fr/en/" ${WRKSRC}/setup.py
