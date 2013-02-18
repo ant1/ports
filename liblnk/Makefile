@@ -14,7 +14,6 @@ LICENSE=	LGPL3
 
 GNU_CONFIGURE=	yes
 CONFIGURE_ARGS=	--enable-python
-USE_PKGCONFIG=	build
 USE_GETTEXT=	yes
 USE_GNOME=	gnomehack
 USE_ICONV=	yes
