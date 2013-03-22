@@ -37,14 +37,14 @@ do-build:
 	${CP} ${FILESDIR}/ewf.py ${WRKSRC}/build/ewf.py
 .for d in GUI acquirefiles datastructures initial_processing pyinstaller registryparser reporting templates
 	${MKDIR} ${WRKSRC}/build/${d}
-	(cd ${WRKSRC}/${d} && ${COPYTREE_SHARE} \* ${WRKSRC}/build/${d})
+	(cd ${WRKSRC}/${d} && ${COPYTREE_SHARE} . ${WRKSRC}/build/${d})
 .endfor
 	${PYTHON_CMD} -m compileall ${WRKSRC}/build
 	${PYTHON_CMD} -O -m compileall ${WRKSRC}/build
 
 do-install:
 	${MKDIR} ${PYTHONPREFIX_SITELIBDIR}/${PORTNAME}
-	(cd ${WRKSRC}/build && ${COPYTREE_SHARE} \* ${PYTHONPREFIX_SITELIBDIR}/${PORTNAME})
+	(cd ${WRKSRC}/build && ${COPYTREE_SHARE} . ${PYTHONPREFIX_SITELIBDIR}/${PORTNAME})
 	${INSTALL_SCRIPT} ${WRKDIR}/${PORTNAME}.sh ${PREFIX}/bin/${PORTNAME}
 
 .include <bsd.port.mk>
