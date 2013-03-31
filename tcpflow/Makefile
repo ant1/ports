@@ -1,9 +1,5 @@
-# New ports collection makefile for:	tcpflow
-# Date created:		20 August 1999
-# Whom:			Jose M. Alcaide <jose@we.lc.ehu.es>
-#
+# Created by: Jose M. Alcaide <jose@we.lc.ehu.es>
 # $FreeBSD$
-#
 
 PORTNAME=	tcpflow
 PORTVERSION=	0.21
