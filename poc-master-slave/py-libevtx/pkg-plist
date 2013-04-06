@@ -1,0 +1,3 @@
+%%PYTHON_SITELIBDIR%%/pyevtx.a
+%%PYTHON_SITELIBDIR%%/pyevtx.la
+%%PYTHON_SITELIBDIR%%/pyevtx.so

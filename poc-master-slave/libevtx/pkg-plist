@@ -1,0 +1,15 @@
+bin/evtxexport
+bin/evtxinfo
+include/libevtx.h
+include/libevtx/codepage.h
+include/libevtx/definitions.h
+include/libevtx/error.h
+include/libevtx/extern.h
+include/libevtx/features.h
+include/libevtx/types.h
+lib/libevtx.a
+lib/libevtx.la
+lib/libevtx.so
+lib/libevtx.so.1
+libdata/pkgconfig/libevtx.pc
+@dirrm include/libevtx
