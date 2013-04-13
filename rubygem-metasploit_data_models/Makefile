@@ -17,5 +17,6 @@ RUN_DEPENDS=	rubygem-activerecord>=3.2.13:${PORTSDIR}/databases/rubygem-activere
 USE_RUBY=	yes
 USE_RUBYGEMS=	yes
 RUBYGEM_AUTOPLIST=yes
+PLIST_FILES=	bin/mdm_console
 
 .include <bsd.port.mk>
