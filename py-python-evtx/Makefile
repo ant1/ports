@@ -2,8 +2,10 @@
 # $FreeBSD$
 
 PORTNAME=	python-evtx
-PORTVERSION=	0.2.1
+PORTVERSION=	0.3.1
 CATEGORIES=	security devel python
+MASTER_SITES=	GH \
+		LOCAL/antoine
 PKGNAMEPREFIX=	${PYTHON_PKGNAMEPREFIX}
 
 MAINTAINER=	antoine@FreeBSD.org
@@ -14,11 +16,10 @@ LICENSE=	AL2
 USE_GITHUB=	yes
 GH_ACCOUNT=	williballenthin
 GH_TAGNAME=	v${PORTVERSION}
-GH_COMMIT=	ffbf28e
+GH_COMMIT=	2b97595
 
 USE_PYTHON=	yes
 USE_PYDISTUTILS=easy_install
-PYDISTUTILS_PKGVERSION=0.2
 
 OPTIONS_DEFINE=	DOCS EXAMPLES
 
@@ -31,14 +32,17 @@ PORTEXAMPLES=	*
 PLIST_FILES=	%%PYTHON_SITELIBDIR%%/%%PYEASYINSTALL_EGG%%
 
 post-patch:
-	${REINPLACE_CMD} -e 's|/bin/python|${PYTHON_CMD}|' ${WRKSRC}/scripts/*.py
+	${REINPLACE_CMD} -e 's|0\.3\.0|${PORTVERSION}|' ${WRKSRC}/Evtx/__init__.py
+	${REINPLACE_CMD} -e '1s|#!.*|#!${PYTHON_CMD}|' ${WRKSRC}/scripts/*.py
 
+NO_STAGE=	yes
 .include <bsd.port.options.mk>
 
 post-install:
 .if ${PORT_OPTIONS:MDOCS}
-	@${MKDIR} ${DOCSDIR}
+	@${MKDIR} ${DOCSDIR} ${DOCSDIR}/html
 	${INSTALL_DATA} ${WRKSRC}/README.md ${WRKSRC}/documentation/p65-schuster.pdf ${DOCSDIR}
+	${INSTALL_DATA} ${WRKSRC}/documentation/html/* ${DOCSDIR}/html
 .endif
 .if ${PORT_OPTIONS:MEXAMPLES}
 	@${MKDIR} ${EXAMPLESDIR}
